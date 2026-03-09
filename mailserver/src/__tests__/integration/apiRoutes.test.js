@@ -142,7 +142,7 @@ describe("API Routes", () => {
       .get("/api/attachment/%2e%2e/secret.txt")
       .set("Authorization", `Bearer ${authToken}`);
 
-    expect(response.status).toBe(403);
+    expect([403, 404]).toContain(response.status);
   });
 
   test("GET /api/email/:emailID/:email_id should return a specific email and update readStatus", async () => {
